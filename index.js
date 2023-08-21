@@ -12,21 +12,22 @@ app.use(bodyParser.json())
 
 
 const users = ["farhad","rakib","somaya","susmita"]
-app.get('/mongo/friuts',(req,res)=>{
-  const friuts={
-    name:'fruts',
-    quantiti: 200,
-    price: 1000
-  }
-  res.send(friuts)
-})
-app.get('/users/:id',(req,res)=>{
-  const userId = req.params.id
-  const userName = users[userId]
-  res.send({userId,userName})
-})
+// app.get('/mongo/friuts',(req,res)=>{
+//   const friuts={
+//     name:'fruts',
+//     quantiti: 200,
+//     price: 1000
+//   }
+//   res.send(friuts)
+// })
+// app.get('/users/:id',(req,res)=>{
+//   const userId = req.params.id
+//   const userName = users[userId]
+//   res.send({userId,userName})
+// })
 app.post('/adduser',(req,res)=>{
   const eee = req.body
+  console.log(eee)
   eee.id = 55
   res.send(eee)
 })
