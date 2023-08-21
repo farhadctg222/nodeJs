@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+</head>
+<body>
+    <h1>hello world</h1>
+    <div class="container">
+        <input type="text" class="form-control" id="userbtn">
+        <button class="btn btn-success" id="clik">click</button>
+    </div>
+    <p id="para"></p>
+    <script>
+        fetch('http://localhost:4000/users/1')
+        .then(res=>  res.json())
+        .then(data=>{
+            console.log(data)
+            document.getElementById('para').innerText = data.userName
+        })
+        const bttt = document.getElementById('clik')
+        bttt.addEventListener('click',()=>{
+            const dddd = document.getElementById('userbtn').value
+           const sss = {name:dddd}
+          
+
+
+
+           fetch('http://localhost:4000/adduser',{
+            method: 'POST',
+            body:JSON.stringify(sss),
+            headers: {
+            'Content-type': 'application/json; charset=UTF-8'
+            }
+           
+        })
+        .then(res=>res.json())
+            .then(data=>console.log(data))
+          
+        })
+        
+       
+    </script>
+</body>
+</html>
